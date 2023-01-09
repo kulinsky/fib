@@ -1,6 +1,6 @@
 package fib
 
-func Fib(n int) int {
+func Fibonacci(n int) int {
 	if n == 0 {
 		return n
 	}

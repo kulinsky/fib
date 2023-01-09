@@ -13,15 +13,15 @@ type fibTest struct {
 var fibTests = []fibTest{
 	{0, 0},
 	{1, 1},
-    {2, 1},
+	{2, 1},
 	{3, 2},
 	{10, 55},
-    {20, 6765},
+	{20, 6765},
 }
 
 func TestFib(t *testing.T) {
 	for _, test := range fibTests {
-		if output := fib.Fib(test.arg); output != test.expected {
+		if output := fib.Fibonacci(test.arg); output != test.expected {
 			t.Errorf("Output %d not equal to expected %d", output, test.expected)
 		}
 	}
