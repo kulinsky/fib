@@ -1,9 +1,9 @@
 package fib
 
 func Fib(n int) int {
-    if n == 0 {
-        return n
-    }
+	if n == 0 {
+		return n
+	}
 
 	dp := make([]int, n+1)
 
