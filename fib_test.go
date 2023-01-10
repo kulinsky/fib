@@ -19,10 +19,38 @@ var fibTests = []fibTest{
 	{20, 6765},
 }
 
-func TestFib(t *testing.T) {
+func TestFibonacci(t *testing.T) {
 	for _, test := range fibTests {
 		if output := fib.Fibonacci(test.arg); output != test.expected {
 			t.Errorf("Output %d not equal to expected %d", output, test.expected)
 		}
+	}
+}
+
+func TestTabulation(t *testing.T) {
+	for _, test := range fibTests {
+		if output := fib.Tabulation(test.arg); output != test.expected {
+			t.Errorf("Output %d not equal to expected %d", output, test.expected)
+		}
+	}
+}
+
+func TestMemoization(t *testing.T) {
+	for _, test := range fibTests {
+		if output := fib.Memoization(test.arg); output != test.expected {
+			t.Errorf("Output %d not equal to expected %d", output, test.expected)
+		}
+	}
+}
+
+func BenchmarkTabulation(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		fib.Tabulation(20)
+	}
+}
+
+func BenchmarkMemoization(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		fib.Memoization(20)
 	}
 }

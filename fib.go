@@ -1,6 +1,6 @@
 package fib
 
-func Fibonacci(n int) int {
+func Tabulation(n int) int {
 	if n == 0 {
 		return n
 	}
@@ -14,4 +14,30 @@ func Fibonacci(n int) int {
 	}
 
 	return dp[n]
+}
+
+func Fibonacci(n int) int {
+	return Tabulation(n)
+}
+
+func memo(n int, cache map[int]int) int {
+	if n <= 1 {
+		return n
+	}
+
+	if ans, ok := cache[n]; ok {
+		return ans
+	}
+
+	ans := memo(n-1, cache) + memo(n-2, cache)
+
+	cache[n] = ans
+
+	return ans
+}
+
+func Memoization(n int) int {
+	c := make(map[int]int)
+
+	return memo(n, c)
 }
